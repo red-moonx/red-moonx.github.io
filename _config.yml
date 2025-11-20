@@ -1,23 +1,8 @@
-# Site settings
 title: Luna Zea
-description: Computational biologist — exploring the living world through the lens of data.
+description: Computational Biologist — interpreting the living world through data-driven insight.
 baseurl: ""
 url: "https://red-moonx.github.io"
 
-# User settings
-username: Luna Zea
-user_description: >
-  Biologist and data scientist exploring the intersection of ecology, biodiversity, and health. 
-  Experienced in R, Python, and reproducible pipelines for large-scale biological data analysis.
-user_title: Scientist & Data Analyst
-email: lunazearedondo@gmail.com
-twitter_username: ""
+email: luna.zea@example.com
 github_username: red-moonx
-gplus_username: ""
-
-# Google-analytics
-google-analytics:
-  id: ""
-
-exclude: ['package.json', 'src' , 'node_modules']
-
+linkedin_username: lunazea

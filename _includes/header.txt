@@ -1,0 +1,70 @@
+<!-- Drop this file into _includes/header.html -->
+<header id="hero">
+  <div id="particles-js" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">{{ site.title | default: "Your Name" }}</h1>
+    <p class="hero-tagline">{{ site.description | default: "Computational Biologist — interpreting the living world through data-driven insight." }}</p>
+
+    <nav class="hero-links">
+      {% if site.github_username %}
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+      {% endif %}
+      {% if site.linkedin_username %}
+      <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">LinkedIn</a>
+      {% endif %}
+      {% if site.email %}
+      <a href="mailto:{{ site.email }}">Email</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+<style>
+  :root{
+    --hero-bg: #0a192f;      /* deep blue background */
+    --hero-ink: #ffffff;     /* text color */
+    --hero-muted: rgba(255,255,255,.75);
+    --hero-accent: #64ffda;  /* accent link color */
+    --maxw: 980px;
+  }
+  #hero{position:relative;min-height:85vh;display:grid;place-items:center;overflow:hidden;color:var(--hero-ink)}
+  #particles-js{position:absolute;inset:0;background:var(--hero-bg);z-index:0}
+  .hero-content{position:relative;z-index:1;text-align:center;padding:3rem 1rem;width:100%;max-width:var(--maxw)}
+  .hero-title{font-family: ui-serif, Georgia, "Times New Roman", Times, serif;font-weight:800;font-size:clamp(2rem,5vw,3.25rem);margin:0 0 .5rem}
+  .hero-tagline{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";font-size:clamp(1rem,2.4vw,1.25rem);color:var(--hero-muted);margin:0 0 1.5rem}
+  .hero-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .hero-links a{color:var(--hero-accent);text-decoration:none;border-bottom:1px solid transparent;font-weight:600}
+  .hero-links a:hover{border-bottom-color:currentColor}
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    #particles-js{display:none}
+    #hero{background:var(--hero-bg)}
+  }
+</style>
+
+<!-- particles.js library -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<!-- Configuration: tweak numbers/color/speed to taste -->
+<script>
+  (function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 70, density: { enable: true, value_area: 900 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.45 },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.35, width: 1 },
+        move: { enable: true, speed: 1.6, direction: 'none', out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: false } },
+        modes: { grab: { distance: 140, line_linked: { opacity: 0.9 } } }
+      },
+      retina_detect: true
+    });
+  })();
+</script>
