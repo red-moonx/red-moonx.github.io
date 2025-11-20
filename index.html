@@ -17,8 +17,8 @@
       --bg-elev: #151821;
       --text: #e6e7eb;
       --muted: #a4a9b6;
-      --brand: #21e6a2;
-      --accent: #7cfcff;
+      --brand: #6ce1b9;       /* calmer green tone */
+      --accent: #88f2d1;
       --card: #12141a;
       --shadow: 0 8px 24px rgba(0,0,0,.35);
     }
@@ -59,11 +59,8 @@
     .icon-btn{width:48px;height:48px;display:inline-grid;place-items:center;border-radius:999px;border:1.5px solid color-mix(in oklab, var(--text) 25%, transparent);background:var(--bg-elev);transition:.25s}
     .icon-btn:hover{border-color:var(--brand);transform:translateY(-2px)}
 
-    /* Portrait ring */
+    /* Portrait (clean, no ring/aura) */
     .portrait-wrap{position:relative;isolation:isolate}
-    .ring{position:absolute;inset:-24px;display:grid;place-items:center;pointer-events:none}
-    .ring::before{content:"";width:min(420px,70vw);aspect-ratio:1;border-radius:50%;border:10px dashed var(--brand);filter:drop-shadow(0 0 12px color-mix(in oklab, var(--brand) 60%, transparent));animation:spin 16s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
     .portrait{border-radius:999px;overflow:hidden;width:min(360px,70vw);margin-inline:auto;box-shadow:var(--shadow)}
 
     /* Sections */
@@ -145,7 +142,7 @@
     </div>
 
     <div class="portrait-wrap">
-      <div class="ring" aria-hidden="true"></div>
+      <!-- removed the ring/aura wrapper -->
       <div class="portrait">
         <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=1200&auto=format&fit=crop" alt="Portrait of Luna Zea" />
       </div>
@@ -309,7 +306,7 @@
     // Animate skill bars when visible
     const bars = document.querySelectorAll('.bar > span');
     const barObs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.width = e.target.getAttribute('style').match(/width:\\s*([^;]+)/)[1]; } });
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.width = e.target.getAttribute('style').match(/width:\s*([^;]+)/)[1]; } });
     },{threshold: .5});
     bars.forEach(b=>barObs.observe(b));
 
