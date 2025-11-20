@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luna Zea – Portfolio</title>
+  <meta name="description" content="Luna Zea – Data Analyst & Storyteller portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <style>
+    :root{
+      --bg: #0e0f13;          /* dark */
+      --bg-elev: #151821;
+      --text: #e6e7eb;
+      --muted: #a4a9b6;
+      --brand: #21e6a2;
+      --accent: #7cfcff;
+      --card: #12141a;
+      --shadow: 0 8px 24px rgba(0,0,0,.35);
+    }
+    html[data-theme="light"]{
+      --bg:#ffffff;           /* light */
+      --bg-elev:#f6f7fb;
+      --text:#0e0f13;
+      --muted:#4b5563;
+      --brand:#0ea5e9;
+      --accent:#22c55e;
+      --card:#ffffff;
+      --shadow:0 12px 24px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92vw);margin-inline:auto}
+    /* Navbar */
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(var(--bg),rgba(0,0,0,0));backdrop-filter:saturate(130%) blur(6px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{font-family:"Space Grotesk",ui-sans-serif;font-weight:800;letter-spacing:.3px}
+    .brand span{color:var(--brand)}
+    .nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
+    .nav a{opacity:.85}
+    .nav a.active,.nav a:hover{opacity:1;color:var(--brand)}
+    .toggle{border:1px solid color-mix(in oklab, var(--text) 20%, transparent);border-radius:999px;padding:8px 12px;display:flex;gap:8px;align-items:center;cursor:pointer;background:var(--bg-elev)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px;padding:72px 0}
+    .eyebrow{color:var(--muted);font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+    .title{font-family:"Space Grotesk";font-size:clamp(36px,5vw,64px);font-weight:900;margin:.2rem 0 0}
+    .title .accent{color:var(--brand)}
+    .lead{max-width:55ch;color:var(--muted)}
+    .cta{display:flex;gap:14px;align-items:center;margin-top:28px;flex-wrap:wrap}
+    .btn{display:inline-flex;gap:10px;align-items:center;border:1.5px solid color-mix(in oklab, var(--brand) 60%, var(--text));background:transparent;color:var(--text);padding:12px 18px;border-radius:999px;font-weight:700;transition:.25s;box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px color-mix(in oklab, var(--brand) 25%, transparent)}
+    .icon-btn{width:48px;height:48px;display:inline-grid;place-items:center;border-radius:999px;border:1.5px solid color-mix(in oklab, var(--text) 25%, transparent);background:var(--bg-elev);transition:.25s}
+    .icon-btn:hover{border-color:var(--brand);transform:translateY(-2px)}
+
+    /* Portrait ring */
+    .portrait-wrap{position:relative;isolation:isolate}
+    .ring{position:absolute;inset:-24px;display:grid;place-items:center;pointer-events:none}
+    .ring::before{content:"";width:min(420px,70vw);aspect-ratio:1;border-radius:50%;border:10px dashed var(--brand);filter:drop-shadow(0 0 12px color-mix(in oklab, var(--brand) 60%, transparent));animation:spin 16s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .portrait{border-radius:999px;overflow:hidden;width:min(360px,70vw);margin-inline:auto;box-shadow:var(--shadow)}
+
+    /* Sections */
+    section{padding:90px 0}
+    .section-title{font-family:"Space Grotesk";font-weight:800;font-size:clamp(26px,4vw,40px);margin:0 0 18px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:20px}
+
+    /* About */
+    .about{grid-template-columns:1fr 1fr}
+    .card{background:var(--card);border:1px solid color-mix(in oklab, var(--text) 12%, transparent);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+
+    /* Resume timeline */
+    .timeline{position:relative;margin:8px 0 0 0;padding-left:22px}
+    .timeline::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(var(--brand), transparent)}
+    .entry{position:relative;margin:18px 0;padding-left:12px}
+    .entry::before{content:"";position:absolute;left:-12px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--brand)}
+    .entry h4{margin:.1rem 0}
+
+    /* Skills */
+    .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px}
+    .skill{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px;border-radius:16px;background:var(--card);border:1px solid color-mix(in oklab, var(--text) 12%, transparent)}
+    .skill i, .skill img{font-size:42px;height:42px}
+    .bar{height:10px;background:color-mix(in oklab, var(--text) 10%, transparent);border-radius:999px;overflow:hidden}
+    .bar > span{display:block;height:100%;background:var(--brand);width:0;transition:width 1.2s ease}
+
+    /* Projects */
+    .projects{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .project{display:flex;flex-direction:column;gap:10px}
+    .project img{border-radius:14px;border:1px solid color-mix(in oklab, var(--text) 10%, transparent)}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:var(--bg-elev);border:1px solid color-mix(in oklab, var(--text) 12%, transparent)}
+
+    footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid color-mix(in oklab, var(--text) 12%, transparent)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;gap:28px;padding:44px 0}
+      .about{grid-template-columns:1fr}
+      .nav ul{display:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="brand">Luna<span>Zea</span></div>
+      <nav>
+        <ul>
+          <li><a class="navlink" href="#home">Home</a></li>
+          <li><a class="navlink" href="#about">About</a></li>
+          <li><a class="navlink" href="#resume">Resume</a></li>
+          <li><a class="navlink" href="#skills">My Skills</a></li>
+          <li><a class="navlink" href="#projects">Projects</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="toggle" aria-label="Toggle light/dark">
+        <i class="fa-solid fa-sun"></i>
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero / Home -->
+  <section id="home" class="container hero">
+    <div>
+      <div class="eyebrow">Data Analyst · Storyteller</div>
+      <h1 class="title">Hello, I'm <span class="accent">Luna Zea</span></h1>
+      <p class="lead">I excel at crafting elegant, data‑driven experiences with Python, R, and BI tools. I translate complex data into actionable stories and user‑friendly dashboards.</p>
+      <div class="cta">
+        <a class="btn" href="assets/LunaZea_CV.pdf" download>
+          <i class="fa-solid fa-download"></i> Download CV
+        </a>
+        <a class="icon-btn" href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a class="icon-btn" href="mailto:you@email.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="portrait-wrap">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="portrait">
+        <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=1200&auto=format&fit=crop" alt="Portrait of Luna Zea" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="grid about">
+        <div class="card">
+          <p>Hi! I'm Luna, a data analyst with a knack for transforming ambiguity into insights. My background spans research analytics, dashboard design, and experimentation. I care about clarity, accessibility, and impact.</p>
+          <p class="muted">Currently open to data science and analytics roles where I can ship beautiful dashboards and robust analysis pipelines.</p>
+        </div>
+        <div class="grid" style="gap:16px">
+          <div class="card"><strong>5+ years</strong><br><span class="muted">experience in analytics</span></div>
+          <div class="card"><strong>20+ dashboards</strong><br><span class="muted">Tableau • Power BI</span></div>
+          <div class="card"><strong>End‑to‑end</strong><br><span class="muted">from data to story</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume">
+    <div class="container">
+      <h2 class="section-title">Resume</h2>
+      <div class="grid" style="grid-template-columns:1fr 1fr">
+        <div>
+          <h3>Experience</h3>
+          <div class="timeline">
+            <div class="entry">
+              <h4>Data Analyst – Company A</h4>
+              <div class="muted">2022 – Present · Berlin</div>
+              <p>Built KPI dashboards, automated reporting in Python, and partnered with stakeholders to drive decisions.</p>
+            </div>
+            <div class="entry">
+              <h4>Research Analyst – Company B</h4>
+              <div class="muted">2019 – 2022</div>
+              <p>Designed experiments, cleaned datasets, and authored data narratives for cross‑functional teams.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <div class="timeline">
+            <div class="entry">
+              <h4>MSc, Data Science</h4>
+              <div class="muted">University X</div>
+              <p>Focus: machine learning, statistics, and data visualization.</p>
+            </div>
+            <div class="entry">
+              <h4>BSc, Something Analytical</h4>
+              <div class="muted">University Y</div>
+              <p>Graduated with honors. Led analytics club.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skill-grid">
+        <div class="skill"><i class="devicon-python-plain colored" title="Python"></i><div>Python</div><div class="bar"><span style="width:88%"></span></div></div>
+        <div class="skill"><i class="devicon-r-plain colored" title="R"></i><div>R</div><div class="bar"><span style="width:80%"></span></div></div>
+        <div class="skill"><i class="devicon-tableau-plain colored" title="Tableau"></i><div>Tableau</div><div class="bar"><span style="width:85%"></span></div></div>
+        <div class="skill"><i class="devicon-powerbi-plain colored" title="Power BI"></i><div>Power BI</div><div class="bar"><span style="width:82%"></span></div></div>
+        <div class="skill"><i class="devicon-pandas-plain colored" title="Pandas"></i><div>Pandas</div><div class="bar"><span style="width:86%"></span></div></div>
+        <div class="skill"><i class="devicon-numpy-plain colored" title="NumPy"></i><div>NumPy</div><div class="bar"><span style="width:78%"></span></div></div>
+        <div class="skill"><i class="devicon-postgresql-plain colored" title="SQL"></i><div>SQL</div><div class="bar"><span style="width:75%"></span></div></div>
+        <div class="skill"><i class="devicon-git-plain colored" title="Git"></i><div>Git</div><div class="bar"><span style="width:72%"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid projects">
+        <article class="project card">
+          <img src="https://images.unsplash.com/photo-1557825835-70d97c4aa567?q=80&w=1600&auto=format&fit=crop" alt="Dashboard project preview"/>
+          <h3>Customer Churn Dashboard</h3>
+          <p class="muted">Interactive Tableau/Power BI dashboard monitoring churn, cohorts, and retention with alerting.</p>
+          <div class="tags">
+            <span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">SQL</span>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:6px">
+            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600">Live</a>
+            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </article>
+        <article class="project card">
+          <img src="https://images.unsplash.com/photo-1551281044-8d8b84bd9bdf?q=80&w=1600&auto=format&fit=crop" alt="NLP project preview"/>
+          <h3>NLP Feedback Analyzer</h3>
+          <p class="muted">Python app that classifies and summarizes user feedback to inform product decisions.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">scikit‑learn</span><span class="tag">NLP</span>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:6px">
+            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600">Demo</a>
+            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </article>
+        <article class="project card">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop" alt="Experimentation project preview"/>
+          <h3>A/B Experiment Toolkit</h3>
+          <p class="muted">Reusable notebooks for power analysis, metric design, and experiment readouts.</p>
+          <div class="tags">
+            <span class="tag">R</span><span class="tag">Python</span><span class="tag">Stats</span>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:6px">
+            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600">Docs</a>
+            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Luna Zea. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Smooth scroll and active nav state
+    const links = document.querySelectorAll('.navlink');
+    links.forEach(a => a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      el?.scrollIntoView({behavior:'smooth'});
+    }));
+    const sections = [...document.querySelectorAll('section[id]')];
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          document.querySelectorAll('.nav a').forEach(l=>l.classList.remove('active'));
+          const target = document.querySelector(`.nav a[href='#${entry.target.id}']`);
+          target?.classList.add('active');
+        }
+      })
+    },{rootMargin:'-50% 0px -45% 0px'});
+    sections.forEach(s=>obs.observe(s));
+
+    // Theme toggle with persistence
+    const themeToggle = document.getElementById('themeToggle');
+    const applyTheme = (t)=>document.documentElement.setAttribute('data-theme', t);
+    const saved = localStorage.getItem('theme') || 'dark';
+    applyTheme(saved);
+    themeToggle.addEventListener('click', ()=>{
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next); localStorage.setItem('theme', next);
+    });
+
+    // Animate skill bars when visible
+    const bars = document.querySelectorAll('.bar > span');
+    const barObs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.width = e.target.getAttribute('style').match(/width:\\s*([^;]+)/)[1]; } });
+    },{threshold: .5});
+    bars.forEach(b=>barObs.observe(b));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
