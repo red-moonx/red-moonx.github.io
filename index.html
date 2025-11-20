@@ -17,8 +17,8 @@
       --bg-elev: #151821;
       --text: #e6e7eb;
       --muted: #a4a9b6;
-      --brand: #21e6a2;
-      --accent: #7cfcff;
+      --brand: #6ce1b9;       /* calmer green tone */
+      --accent: #88f2d1;
       --card: #12141a;
       --shadow: 0 8px 24px rgba(0,0,0,.35);
     }
@@ -37,6 +37,7 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{width:min(1100px,92vw);margin-inline:auto}
+
     /* Navbar */
     header{position:sticky;top:0;z-index:50;background:linear-gradient(var(--bg),rgba(0,0,0,0));backdrop-filter:saturate(130%) blur(6px)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
@@ -59,11 +60,20 @@
     .icon-btn{width:48px;height:48px;display:inline-grid;place-items:center;border-radius:999px;border:1.5px solid color-mix(in oklab, var(--text) 25%, transparent);background:var(--bg-elev);transition:.25s}
     .icon-btn:hover{border-color:var(--brand);transform:translateY(-2px)}
 
-    /* Portrait ring */
+    /* Portrait aura (softer than dashed spinning ring) */
     .portrait-wrap{position:relative;isolation:isolate}
-    .ring{position:absolute;inset:-24px;display:grid;place-items:center;pointer-events:none}
-    .ring::before{content:"";width:min(420px,70vw);aspect-ratio:1;border-radius:50%;border:10px dashed var(--brand);filter:drop-shadow(0 0 12px color-mix(in oklab, var(--brand) 60%, transparent));animation:spin 16s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
+    .aura{position:absolute;inset:-24px;pointer-events:none}
+    .aura::before{content:"";position:absolute;inset:0;border-radius:50%;
+      background:radial-gradient(60% 60% at 50% 50%, color-mix(in oklab, var(--brand) 45%, transparent) 0%, transparent 70%);
+      filter:blur(18px);opacity:.55;animation:breathe 7s ease-in-out infinite}
+    .aura::after{content:"";position:absolute;inset:-6px;border-radius:50%;
+      background:conic-gradient(from 0deg, transparent 0 70%, color-mix(in oklab, var(--brand) 35%, transparent) 75% 85%, transparent 90% 100%);
+      filter:blur(10px);opacity:.28;animation:slowspin 45s linear infinite}
+    @keyframes breathe{0%,100%{transform:scale(.985);opacity:.45}50%{transform:scale(1.02);opacity:.7}}
+    @keyframes slowspin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion: reduce){
+      .aura::after,.aura::before{animation:none}
+    }
     .portrait{border-radius:999px;overflow:hidden;width:min(360px,70vw);margin-inline:auto;box-shadow:var(--shadow)}
 
     /* Sections */
@@ -135,7 +145,7 @@
       <h1 class="title">Hello, I'm <span class="accent">Luna Zea</span></h1>
       <p class="lead">I excel at crafting elegant, data‑driven experiences with Python, R, and BI tools. I translate complex data into actionable stories and user‑friendly dashboards.</p>
       <div class="cta">
-        <a class="btn" href="assets/LunaZea_CV.pdf" download>
+        <a class="btn" href="./assets/LunaZea_CV.pdf" download>
           <i class="fa-solid fa-download"></i> Download CV
         </a>
         <a class="icon-btn" href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -145,9 +155,9 @@
     </div>
 
     <div class="portrait-wrap">
-      <div class="ring" aria-hidden="true"></div>
+      <div class="aura" aria-hidden="true"></div>
       <div class="portrait">
-        <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=1200&auto=format&fit=crop" alt="Portrait of Luna Zea" />
+        <img src="./images/portrait.jpg" alt="Portrait of Luna Zea" />
       </div>
     </div>
   </section>
@@ -232,7 +242,7 @@
       <h2 class="section-title">Projects</h2>
       <div class="grid projects">
         <article class="project card">
-          <img src="https://images.unsplash.com/photo-1557825835-70d97c4aa567?q=80&w=1600&auto=format&fit=crop" alt="Dashboard project preview"/>
+          <img src="./projects/churn-dashboard.jpg" alt="Dashboard project preview"/>
           <h3>Customer Churn Dashboard</h3>
           <p class="muted">Interactive Tableau/Power BI dashboard monitoring churn, cohorts, and retention with alerting.</p>
           <div class="tags">
@@ -240,11 +250,11 @@
           </div>
           <div style="display:flex;gap:10px;margin-top:6px">
             <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600">Live</a>
-            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
+            <a class="btn" href="https://github.com/yourusername/customer-churn-dashboard" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
           </div>
         </article>
         <article class="project card">
-          <img src="https://images.unsplash.com/photo-1551281044-8d8b84bd9bdf?q=80&w=1600&auto=format&fit=crop" alt="NLP project preview"/>
+          <img src="./projects/nlp-analyzer.jpg" alt="NLP project preview"/>
           <h3>NLP Feedback Analyzer</h3>
           <p class="muted">Python app that classifies and summarizes user feedback to inform product decisions.</p>
           <div class="tags">
@@ -252,11 +262,11 @@
           </div>
           <div style="display:flex;gap:10px;margin-top:6px">
             <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600">Demo</a>
-            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
+            <a class="btn" href="https://github.com/yourusername/nlp-feedback-analyzer" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
           </div>
         </article>
         <article class="project card">
-          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop" alt="Experimentation project preview"/>
+          <img src="./projects/experiment-toolkit.jpg" alt="Experimentation project preview"/>
           <h3>A/B Experiment Toolkit</h3>
           <p class="muted">Reusable notebooks for power analysis, metric design, and experiment readouts.</p>
           <div class="tags">
@@ -264,7 +274,7 @@
           </div>
           <div style="display:flex;gap:10px;margin-top:6px">
             <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600">Docs</a>
-            <a class="btn" href="#" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
+            <a class="btn" href="https://github.com/yourusername/ab-experiment-toolkit" target="_blank" style="padding:8px 12px;font-weight:600"><i class="fa-brands fa-github"></i> Code</a>
           </div>
         </article>
       </div>
@@ -309,7 +319,7 @@
     // Animate skill bars when visible
     const bars = document.querySelectorAll('.bar > span');
     const barObs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.width = e.target.getAttribute('style').match(/width:\\s*([^;]+)/)[1]; } });
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.width = e.target.getAttribute('style').match(/width:\s*([^;]+)/)[1]; } });
     },{threshold: .5});
     bars.forEach(b=>barObs.observe(b));
 
