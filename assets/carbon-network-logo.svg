@@ -1,0 +1,20 @@
+<svg class="brand-logo" viewBox="0 0 120 120" role="img" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+  <title>Carbon atom ball-and-stick network</title>
+  <!-- Sticks (edges) -->
+  <g stroke="color-mix(in oklab, var(--muted) 60%, black)" stroke-width="4" stroke-linecap="round" fill="none">
+    <line x1="60" y1="60" x2="94" y2="38" />
+    <line x1="60" y1="60" x2="96" y2="86" />
+    <line x1="60" y1="60" x2="26" y2="86" />
+    <line x1="60" y1="60" x2="24" y2="38" />
+  </g>
+  <!-- Balls (nodes) -->
+  <g>
+    <!-- Central ball (Carbon) -->
+    <circle cx="60" cy="60" r="17" fill="var(--brand)" stroke="color-mix(in oklab, var(--brand) 60%, black)" stroke-width="3" />
+    <!-- Peripheral balls (Hydrogen) -->
+    <circle cx="94" cy="38" r="10" fill="#eaeaea" stroke="color-mix(in oklab, var(--muted) 60%, #bbb)" stroke-width="2" />
+    <circle cx="96" cy="86" r="11" fill="#eaeaea" stroke="color-mix(in oklab, var(--muted) 60%, #bbb)" stroke-width="2" />
+    <circle cx="26" cy="86" r="11" fill="#eaeaea" stroke="color-mix(in oklab, var(--muted) 60%, #bbb)" stroke-width="2" />
+    <circle cx="24" cy="38" r="9.5" fill="#eaeaea" stroke="color-mix(in oklab, var(--muted) 60%, #bbb)" stroke-width="2" />
+  </g>
+</svg>
