@@ -199,7 +199,7 @@ const publications = [
 
 (function () {
   const listEl = document.getElementById("publicationsList");
-  const tabButtons = document.querySelectorAll(".pub-tab");
+  const tabButtons = document.querySelectorAll("#publications .pub-tab");
 
   if (!listEl) return;
 

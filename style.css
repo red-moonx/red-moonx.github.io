@@ -1072,3 +1072,15 @@ footer{
   font-weight: 600;
 }
 
+.dev-item-desc {
+  font-size: calc(1.1rem + 1pt);
+  padding-left: 40px;
+  margin-top: -8px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.dev-item-desc::before {
+  content: "";
+}
+

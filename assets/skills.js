@@ -19,15 +19,15 @@ const skillsGroups = [
     title: "Machine Learning / AI",
     items: [
       { label: "scikit-learn", iconClass: "devicon-scikitlearn-plain colored" },
-      { label: "PyTorch", iconClass: "devicon-pytorch-original colored" },
-      { label: "TensorFlow", iconClass: "devicon-tensorflow-original colored" }
+    //  { label: "PyTorch", iconClass: "devicon-pytorch-original colored" },
+    // { label: "TensorFlow", iconClass: "devicon-tensorflow-original colored" }
     ]
   },
   {
     title: "Data Analytics",
     items: [
       { label: "Supervised & unsupervised ML", iconClass: "" },
-      { label: "A/B testing & experimentation", iconClass: "" },
+    // { label: "A/B testing & experimentation", iconClass: "" },
       { label: "Statistical analysis", iconClass: "" }
     ]
   },
@@ -37,16 +37,16 @@ const skillsGroups = [
       { label: "ggplot2", svgPath: "assets/icons/Ggplot2.svg" },
       { label: "shiny", svgPath: "assets/icons/shiny.svg" },
       { label: "matplotlib", svgPath: "assets/icons/Matplotlib.svg" },
-      { label: "Tableau", svgPath: "assets/icons/tableau.svg" },
-      { label: "Power BI", svgPath: "assets/icons/Power_BI.svg" }
+     // { label: "Tableau", svgPath: "assets/icons/tableau.svg" },
+     // { label: "Power BI", svgPath: "assets/icons/Power_BI.svg" }
     ]
   },
   {
     title: "Data Engineering & Pipelines",
     items: [
-      { label: "Apache Airflow", iconClass: "devicon-apacheairflow-plain colored" },
+      // { label: "Apache Airflow", iconClass: "devicon-apacheairflow-plain colored" },
       { label: "Docker", iconClass: "devicon-docker-plain colored" },
-      { label: "AWS", svgPath: "assets/icons/AWS.svg" },
+      // { label: "AWS", svgPath: "assets/icons/AWS.svg" },
       { label: "ETL & data cleaning", iconClass: "" }
     ]
   },
@@ -54,7 +54,7 @@ const skillsGroups = [
     title: "Design & Communication",
     items: [
       { label: "Illustrator", iconClass: "devicon-illustrator-plain colored" },
-      { label: "Figma", iconClass: "devicon-figma-plain colored" },
+     // { label: "Figma", iconClass: "devicon-figma-plain colored" },
       { label: "Canva", iconClass: "devicon-canva-plain colored" },
       { label: "Figure design", iconClass: "" },
       { label: "Presentations", iconClass: "" }

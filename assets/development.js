@@ -2,12 +2,30 @@
 
 const courses = {
   ongoing: [
-    { title: "AI dev tools", institution: "DataTalks", duration: "8 weeks", year: "2025" },
-    { title: "Machine Learning Zoomcamp", institution: "DataTalks", duration: "16 weeks", year: "2025-2026" },
-    { title: "IBM Data Science Professional Certificate", institution: "", duration: "", year: "" }
+    { 
+      title: "AI Dev Tools by DataTalks.Club", 
+      institution: "", 
+      duration: "6 weeks", 
+      year: "Cohort 2025: Nov 18 - Dec 30",
+      description: "AI-assisted coding (Claude Code, Copilot, Cursor) | CI/CD pipelines | Model-Context Protocol | Building AI agents | Automated testing & deployment"
+    },
+    { 
+      title: "Machine Learning Zoomcamp by DataTalks.Club", 
+      institution: "", 
+      duration: "16 weeks", 
+      year: "Self-paced | 2025-2026",
+      description: "Supervised learning (regression, classification, decision trees, ensemble methods) | Neural networks & deep learning (CNNs, transfer learning) | Model deployment (FastAPI, Docker) | Serverless deployment (AWS Lambda) | Container orchestration (Kubernetes, TensorFlow Serving) | Tools: Scikit-Learn, XGBoost, TensorFlow, PyTorch"
+    },
+    { 
+      title: "IBM Data Science Professional Certificate", 
+      institution: "", 
+      duration: "12 course series", 
+      year: "Self-paced | 2025-2026",
+      description: "Data science methodology | Python for data science & AI | Databases & SQL | Data analysis & visualization with Python | Machine learning with Python | Applied data science capstone | Generative AI | Tools: Python, Jupyter, SQL, Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn"
+    }
   ],
   finished: [
-    { year: "2025", title: "Helmholtz Career and Leadership Development", location: "Hofgeismar, Germany", date: "6-18 September" },
+    { year: "2025", title: "Helmholtz Career and Leadership Development", location: "Hofgeismar, Germany", date: "16-18 September" },
     { year: "2025", title: "iNAMES summer school training course: Mixed Models", location: "online", date: "29-30 April and 6-7 May" },
     { year: "2025", title: "Computational Genomics Course: AI-assisted data analysis", location: "online", date: "3rd-9th March" },
     { year: "2024", title: "Good Scientific Practice workshop for PhD researchers", location: "BIMSB, Berlin", date: "3rd March" },
@@ -45,7 +63,7 @@ const outreach = {
 
 (function () {
   const listEl = document.getElementById("developmentList");
-  const tabButtons = document.querySelectorAll("#development .pub-tab");
+  const tabButtons = document.querySelectorAll("#development .dev-tab");
 
   if (!listEl) return;
 
@@ -59,8 +77,15 @@ const outreach = {
 
     const ongoingTitle = document.createElement("h3");
     ongoingTitle.className = "dev-subsection-title";
-    ongoingTitle.textContent = "Ongoing";
+    ongoingTitle.textContent = "Ongoing:";
     ongoingSection.appendChild(ongoingTitle);
+
+    const introText = document.createElement("p");
+    introText.className = "text-body";
+    introText.style.marginTop = "-10px";
+    introText.style.marginBottom = "20px";
+    introText.textContent = "Passionate about continuous learning and expanding my skill set. Currently enrolled in the following courses to deepen my expertise in production ML, AI tools, and data engineering (expected completion: Q1 2026).";
+    ongoingSection.appendChild(introText);
 
     const ongoingList = document.createElement("ul");
     ongoingList.className = "dev-list";
@@ -76,6 +101,14 @@ const outreach = {
       
       li.innerHTML = text;
       ongoingList.appendChild(li);
+
+      // Add description if available
+      if (course.description) {
+        const descLi = document.createElement("li");
+        descLi.className = "dev-item dev-item-desc";
+        descLi.innerHTML = course.description;
+        ongoingList.appendChild(descLi);
+      }
     });
 
     ongoingSection.appendChild(ongoingList);
@@ -87,7 +120,7 @@ const outreach = {
 
     const finishedTitle = document.createElement("h3");
     finishedTitle.className = "dev-subsection-title";
-    finishedTitle.textContent = "Finished";
+    finishedTitle.textContent = "Finished:";
     finishedSection.appendChild(finishedTitle);
 
     const finishedList = document.createElement("ul");
@@ -183,7 +216,8 @@ const outreach = {
 
   // Tab interactions
   tabButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
       const filter = btn.dataset.filter || "courses";
 
       tabButtons.forEach((b) => {
