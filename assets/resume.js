@@ -9,23 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         year: 'Oct 2025 – Present',
         location: 'Berlin, Germany',
-        role: 'Data Scientist',
+        role: 'Senior Research Scientist',
         institute: 'MDC-BIMSB',
         description:
-          'I drive the completion of a 5-year multi-omics research study toward high-impact publication, leading two new research lines and coordinating cross-functional collaboration across four international teams. I oversee study design, data generation strategies, and computational workflows, while mentoring junior researchers.'
+          'I’m driving the completion of a long-running multi-omics project on the molecular mechanisms underlying addiction. Alongside this, I’m leading two new research lines, overseeing study design, data generation strategies, and computational workflows, while mentoring junior researchers.'
       },
       {
         year: 'Jan 2019 – Oct 2025',
         location: 'Berlin, Germany',
-        role: 'PhD Researcher',
+        role: 'Ph.D. Researcher',
         institute: 'MDC-BIMSB',
         description:
-          'I led and co-led pioneering single-cell multi-omics studies in neuronal systems, dissecting gene regulatory mechanisms across health and disease states. I contributed to five additional genomics projects with interdisciplinary teams, from experimental planning to data production and interpretation, resulting in successful publications. Communicating technical insights to diverse audiences strengthened my ability to explain complex biological and analytical findings.'
+          'I led and co-led pioneering single-cell multi-omics studies in neuronal systems, dissecting gene regulatory mechanisms across health and disease states. I contributed to additional genomics projects within interdisciplinary teams, from experimental planning to data production and interpretation, resulting in successful publications. Communicating technical insights to diverse audiences strengthened my ability to explain complex biological and analytical findings.'
       },
       {
         year: 'Feb 2017 – Aug 2018',
         location: 'New York, USA',
-        role: 'Data Scientist',
+        role: 'Junior Scientist',
         institute: 'NYU School of Medicine',
         description:
           'I conducted integrative genomic analyses (ChIP-seq, RNA-seq, ATAC-seq) for studies in inflammation and leukemia, generating and processing large-scale datasets that supported high-impact publications. I collaborated closely with clinical and experimental partners, refining my computational skills and gaining experience working with primary patient samples.'
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         place: 'Autonomous University of Barcelona',
         subtitle: 'Barcelona, Spain',
         description:
-          'Coding in bash and Python, use of Git and Docker, and extensive training in Genomic analyses.'
+          'Coding in bash, R and Python, use of Git and Docker, and extensive training in Genomic analyses.'
       },
       {
         year: '2015',

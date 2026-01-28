@@ -2,12 +2,19 @@
 
 const courses = {
   ongoing: [
-    { 
+/*     { 
       title: "AI Dev Tools by DataTalks.Club", 
       institution: "", 
       duration: "6 weeks", 
       year: "Cohort 2025: Nov 18 - Dec 30",
       description: "AI-assisted coding (Claude Code, Copilot, Cursor) | CI/CD pipelines | Model-Context Protocol | Building AI agents | Automated testing & deployment"
+    }, */
+    { 
+      title: "Data Engineering Zoomcamp by DataTalks.Club", 
+      institution: "", 
+      duration: "8 weeks", 
+      year: "Cohort 2026 | Started Jan 12, 2026",
+      description: "Containerization & infrastructure as code (Docker, Docker Compose, Terraform, GCP) | Workflow orchestration (Kestra) | Data ingestion & normalization | Data warehousing (BigQuery) | Analytics engineering & data modeling (dbt) | Batch & streaming
     },
     { 
       title: "Machine Learning Zoomcamp by DataTalks.Club", 
