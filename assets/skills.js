@@ -5,12 +5,12 @@ const skillsGroups = [
   {
     title: "Programming & Core Tools",
     items: [
+      { label: "Python", iconClass: "assets/icons/python.svg" },
       { label: "R", iconClass: "devicon-r-plain colored" },
-      { label: "Python", iconClass: "devicon-python-plain colored" },
-      { label: "Bash", iconClass: "devicon-bash-plain colored" },
+      { label: "SQL", iconClass: "devicon-postgresql-plain colored" },
       { label: "Git", iconClass: "devicon-git-plain colored" },
       { label: "Linux", iconClass: "devicon-linux-plain colored" },
-      { label: "SQL", iconClass: "devicon-postgresql-plain colored" },
+      { label: "Bash", iconClass: "devicon-bash-plain colored" },
       { label: "Pandas", iconClass: "devicon-pandas-plain colored" },
       { label: "NumPy", iconClass: "devicon-numpy-plain colored" }
     ]
@@ -19,42 +19,44 @@ const skillsGroups = [
     title: "Machine Learning / AI",
     items: [
       { label: "scikit-learn", iconClass: "devicon-scikitlearn-plain colored" },
-    //  { label: "PyTorch", iconClass: "devicon-pytorch-original colored" },
-    // { label: "TensorFlow", iconClass: "devicon-tensorflow-original colored" }
+      { label: "Supervised learning", iconClass: "" },
+      { label: "Model evaluation", iconClass: "" }
     ]
   },
   {
-    title: "Data Analytics",
+    title: "Data Analysis & Statistics",
     items: [
-      { label: "Supervised & unsupervised ML", iconClass: "" },
-    // { label: "A/B testing & experimentation", iconClass: "" },
-      { label: "Statistical analysis", iconClass: "" }
+      { label: "Statistical analysis", iconClass: "" },
+      { label: "Hypothesis testing", iconClass: "" },
+      { label: "Data exploration & interpretation", iconClass: "" }
     ]
   },
   {
-    title: "Data Visualization & BI",
+    title: "Data Visualization",
     items: [
       { label: "ggplot2", svgPath: "assets/icons/Ggplot2.svg" },
       { label: "shiny", svgPath: "assets/icons/shiny.svg" },
       { label: "matplotlib", svgPath: "assets/icons/Matplotlib.svg" },
-     // { label: "Tableau", svgPath: "assets/icons/tableau.svg" },
-     // { label: "Power BI", svgPath: "assets/icons/Power_BI.svg" }
+      { label: "Scientific figures", iconClass: "" }
     ]
   },
   {
     title: "Data Engineering & Pipelines",
     items: [
-      // { label: "Apache Airflow", iconClass: "devicon-apacheairflow-plain colored" },
       { label: "Docker", iconClass: "devicon-docker-plain colored" },
-      // { label: "AWS", svgPath: "assets/icons/AWS.svg" },
-      { label: "ETL & data cleaning", iconClass: "" }
+      { label: "GCP", svgPath: "assets/icons/GCP.svg" },
+      { label: "BigQuery", svgPath: "assets/icons/bigquery.svg" },
+      { label: "Terraform", svgPath: "assets/icons/terraform.svg" },
+      { label: "dbt", svgPath: "assets/icons/dbt.svg" },
+      { label: "Spark", svgPath: "assets/icons/spark.svg" },
+      { label: "Kafka", svgPath: "assets/icons/kafka.svg" },
+      { label: "Workflow orchestration (Kestra)", iconClass: "" }
     ]
   },
   {
     title: "Design & Communication",
     items: [
       { label: "Illustrator", iconClass: "devicon-illustrator-plain colored" },
-     // { label: "Figma", iconClass: "devicon-figma-plain colored" },
       { label: "Canva", iconClass: "devicon-canva-plain colored" },
       { label: "Figure design", iconClass: "" },
       { label: "Presentations", iconClass: "" }
@@ -70,7 +72,8 @@ const bioColumns = [
       "Bulk and single-cell analyses (RNA, ATAC, ChIP)",
       "Differential expression (muscat, edgeR/DESeq2)",
       "Statistical modeling (GLMs, mixed models, hypothesis testing)",
-      "Time-series pattern analysis (tslearn, KMeans)"
+      "Time-series pattern analysis (tslearn, KMeans)",
+      "Biological data interpretation"
     ]
   },
   {
@@ -118,16 +121,15 @@ function renderSkillsGrid() {
           img.alt = item.label + " icon";
           img.className = "skill-icon-svg";
           wrapper.appendChild(img);
-        }   
-  const label = document.createElement("span");
-  label.textContent = item.label;
-  wrapper.appendChild(label);
+        }
+        const label = document.createElement("span");
+        label.textContent = item.label;
+        wrapper.appendChild(label);
 
-  li.appendChild(wrapper);
-} else {
-  li.textContent = item.label;
-}
-
+        li.appendChild(wrapper);
+      } else {
+        li.textContent = item.label;
+      }
 
       list.appendChild(li);
     });

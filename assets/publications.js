@@ -23,7 +23,7 @@ const publications = [
       "Gene regulatory mechanisms of cellular memory of a single cocaine exposure in VTA dopaminergic neurons",
     authors:
       "Zea-Redondo, L., Franke, V., Paul, E. J., Kukalev, A., Haghverdi, L., Bouman, B. J., Arguedas Jimenez, L., Braeuning, C., Marín, O., Akalin, A., Ungless, M. A., Winick-Ng, W., & Pombo, A.",
-    journal: "Manuscript in preparation for submission",
+    journal: "Manuscript under review in Cell Genomics",
     year: 2025,
     isFirstAuthor: true,
     paperUrl: null,
@@ -160,7 +160,7 @@ const publications = [
     notes: "",
     description: ""
   },
-  
+
   {
     title:
       "The E3 ubiquitin ligase SPOP controls resolution of systemic inflammation by triggering MYD88 degradation",
@@ -263,9 +263,8 @@ const publications = [
               </a>` : ""}
           </div>
 
-          ${
-            pub.description
-              ? `
+          ${pub.description
+          ? `
           <button
             class="pub-toggle"
             type="button"
@@ -275,13 +274,12 @@ const publications = [
             <span>Details</span>
             <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
           </button>`
-              : ""
-          }
+          : ""
+        }
         </div>
 
-        ${
-          pub.description
-            ? `
+        ${pub.description
+          ? `
         <div
           id="pub-desc-${filter}-${index}"
           class="pub-description"
@@ -289,7 +287,7 @@ const publications = [
         >
           <p>${pub.description}</p>
         </div>`
-            : ""
+          : ""
         }
       `;
 

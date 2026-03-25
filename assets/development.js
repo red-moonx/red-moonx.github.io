@@ -2,36 +2,36 @@
 
 const courses = {
   ongoing: [
-/*     { 
-      title: "AI Dev Tools by DataTalks.Club", 
-      institution: "", 
-      duration: "6 weeks", 
-      year: "Cohort 2025: Nov 18 - Dec 30",
-      description: "AI-assisted coding (Claude Code, Copilot, Cursor) | CI/CD pipelines | Model-Context Protocol | Building AI agents | Automated testing & deployment"
-    }, */
-    { 
-      title: "Data Engineering Zoomcamp by DataTalks.Club", 
-      institution: "", 
-      duration: "8 weeks", 
-      year: "Cohort 2026 | Started Jan 12, 2026",
-      description: "Containerization & infrastructure as code (Docker, Docker Compose, Terraform, GCP) | Workflow orchestration (Kestra) | Data ingestion & normalization | Data warehousing (BigQuery) | Analytics engineering & data modeling (dbt) | Batch & streaming
-    },
-    { 
-      title: "Machine Learning Zoomcamp by DataTalks.Club", 
-      institution: "", 
-      duration: "16 weeks", 
+    //     { 
+    //       title: "Data Engineering Zoomcamp by DataTalks.Club", 
+    //       institution: "", 
+    //       duration: "8 weeks", 
+    //       year: "Cohort 2026 | Started Jan 12, 2026",
+    //      description: "Containerization & infrastructure as code (Docker, Docker Compose, Terraform, GCP) | Workflow orchestration (Kestra) | Data ingestion & normalization | Data warehousing (BigQuery) | Analytics engineering & data modeling (dbt) | Batch & streaming",
+    //    },
+    {
+      title: "Machine Learning Zoomcamp by DataTalks.Club",
+      institution: "",
+      duration: "16 weeks",
       year: "Self-paced | 2025-2026",
       description: "Supervised learning (regression, classification, decision trees, ensemble methods) | Neural networks & deep learning (CNNs, transfer learning) | Model deployment (FastAPI, Docker) | Serverless deployment (AWS Lambda) | Container orchestration (Kubernetes, TensorFlow Serving) | Tools: Scikit-Learn, XGBoost, TensorFlow, PyTorch"
     },
-    { 
-      title: "IBM Data Science Professional Certificate", 
-      institution: "", 
-      duration: "12 course series", 
+    {
+      title: "IBM Data Science Professional Certificate",
+      institution: "",
+      duration: "12 course series",
       year: "Self-paced | 2025-2026",
       description: "Data science methodology | Python for data science & AI | Databases & SQL | Data analysis & visualization with Python | Machine learning with Python | Applied data science capstone | Generative AI | Tools: Python, Jupyter, SQL, Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn"
     }
   ],
   finished: [
+    {
+      year: "2026",
+      title: "Data Engineering Zoomcamp by DataTalks.Club",
+      location: "online",
+      date: "January–April 2026",
+      description: "Docker | Terraform & GCP | Workflow orchestration | API ingestion & incremental loading | BigQuery & data warehousing | dbt analytics engineering | Spark batch processing | Kafka streaming & schema management"
+    },
     { year: "2025", title: "Helmholtz Career and Leadership Development", location: "Hofgeismar, Germany", date: "16-18 September" },
     { year: "2025", title: "iNAMES summer school training course: Mixed Models", location: "online", date: "29-30 April and 6-7 May" },
     { year: "2025", title: "Computational Genomics Course: AI-assisted data analysis", location: "online", date: "3rd-9th March" },
@@ -100,12 +100,12 @@ const outreach = {
     courses.ongoing.forEach(course => {
       const li = document.createElement("li");
       li.className = "dev-item";
-      
+
       let text = `<strong>${course.title}</strong>`;
       if (course.institution) text += ` ${course.institution}`;
       if (course.duration) text += ` | ${course.duration}`;
       if (course.year) text += ` | ${course.year}`;
-      
+
       li.innerHTML = text;
       ongoingList.appendChild(li);
 
@@ -136,12 +136,12 @@ const outreach = {
     courses.finished.forEach(course => {
       const li = document.createElement("li");
       li.className = "dev-item";
-      
+
       let text = `<strong>${course.year}:</strong> ${course.title}`;
       if (course.location) text += ` (${course.location}`;
       if (course.date) text += `; ${course.date})`;
       else if (course.location) text += `)`;
-      
+
       li.innerHTML = text;
       finishedList.appendChild(li);
     });
