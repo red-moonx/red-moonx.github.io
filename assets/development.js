@@ -30,7 +30,8 @@ const courses = {
       title: "Data Engineering Zoomcamp by DataTalks.Club",
       location: "online",
       date: "January–April 2026",
-      description: "Docker | Terraform & GCP | Workflow orchestration | API ingestion & incremental loading | BigQuery & data warehousing | dbt analytics engineering | Spark batch processing | Kafka streaming & schema management"
+      description: "Docker | Terraform & GCP | Workflow orchestration | API ingestion & incremental loading | BigQuery & data warehousing | dbt analytics engineering | Spark batch processing | Kafka streaming & schema management",
+      certificate: "assets/certificates/de_zoomcamp_certificate.pdf"
     },
     { year: "2025", title: "Helmholtz Career and Leadership Development", location: "Hofgeismar, Germany", date: "16-18 September" },
     { year: "2025", title: "iNAMES summer school training course: Mixed Models", location: "online", date: "29-30 April and 6-7 May" },
@@ -61,8 +62,8 @@ const outreach = {
     { year: "2017", title: "Programa Propi Pràctiques, (UAB, Spain): awarded funding for an international research placement" }
   ],
   activities: [
-    { title: "Mentoring", description: "Advised MSc (2025) and PhD students (2022–2023) on single-cell transcriptomic analyses, including data pre-processing, integration, biological interpretation, and effective result presentation." },
-    { title: "Reviewing", description: "Served as co-reviewer (2020–2025) for Nature Methods, Nature Biotechnology, Genome Biology, Cell Reports, and Molecular Systems Biology." }
+    { title: "Mentoring", description: "Advised MSc (2025) and PhD students (2022–2026) on single-cell transcriptomic analyses, including data pre-processing, integration, biological interpretation, and effective result presentation." },
+    { title: "Reviewing", description: "Served as co-reviewer (2020–2026) for Nature Methods, Nature Biotechnology, Genome Biology, Cell Reports, Molecular Systems Biology and Genome Research." }
   ]
 };
 
@@ -142,8 +143,20 @@ const outreach = {
       if (course.date) text += `; ${course.date})`;
       else if (course.location) text += `)`;
 
+      if (course.certificate) {
+        text += ` <a href="${course.certificate}" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.9em; text-decoration: underline; color: inherit;">[Certificate]</a>`;
+      }
+
       li.innerHTML = text;
       finishedList.appendChild(li);
+
+      // Add description if available
+      if (course.description) {
+        const descLi = document.createElement("li");
+        descLi.className = "dev-item dev-item-desc";
+        descLi.innerHTML = course.description;
+        finishedList.appendChild(descLi);
+      }
     });
 
     finishedSection.appendChild(finishedList);

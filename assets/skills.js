@@ -5,7 +5,7 @@ const skillsGroups = [
   {
     title: "Programming & Core Tools",
     items: [
-      { label: "Python", iconClass: "assets/icons/python.svg" },
+      { label: "Python", svgPath: "assets/icons/python.svg" },
       { label: "R", iconClass: "devicon-r-plain colored" },
       { label: "SQL", iconClass: "devicon-postgresql-plain colored" },
       { label: "Git", iconClass: "devicon-git-plain colored" },
@@ -50,7 +50,7 @@ const skillsGroups = [
       { label: "dbt", svgPath: "assets/icons/dbt.svg" },
       { label: "Spark", svgPath: "assets/icons/spark.svg" },
       { label: "Kafka", svgPath: "assets/icons/kafka.svg" },
-      { label: "Workflow orchestration (Kestra)", iconClass: "" }
+      { label: "Airflow", svgPath: "assets/icons/airflow.svg" }
     ]
   },
   {

@@ -7,12 +7,29 @@ const projects = [
       "Code from my PhD work dissecting how a single drug exposure reshapes chromatin accessibility and gene expression in VTA dopamine neurons using single-cell RNA-seq and ATAC-seq.",
     image: "assets/project_cover/project1_cover.png",
     tags: ["R", "Python", "Seurat", "edgeR", "tslearn", "scikit-learn"],
+    date: "2025-12",
     links: {
       github: "https://github.com/red-moonx/10X-multiome_DNs_drug_exposure/tree/main",
       shiny: "https://shiny.mdc-berlin.de/VTA_Dopa_Timecourse/"
     }
+  },
+
+  {
+    title: "Cetacean Global Biomonitor",
+    description:
+      "My first Data Engineering project! A global-scale data engineering pipeline for marine biodiversity monitoring (Cetacea). Automates the ingestion, cleaning, and transformation of 11M+ GBIF records into a scalable Data Warehouse optimized for professional geospatial analysis (2021–2026).",
+    image: "assets/project_cover/project2_cover.png",
+    tags: ["Terraform", "SQL", "Airflow", "GCS", "BigQuery", "dbt", "dashboard"],
+    date: "2026-03",
+    links: {
+      github: "https://github.com/red-moonx/biomonitor-capstone",
+      dashboard: "https://datastudio.google.com/reporting/66d156e8-19b6-4879-9dae-a09d9af42ea7"
+    }
   }
 ];
+
+// Sort newest first
+projects.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 let currentPage = 0;
 const PROJECTS_PER_PAGE = 3;
@@ -27,19 +44,11 @@ function renderProjects() {
 
   container.innerHTML = "";
 
-  pageProjects.forEach(project => {
+  pageProjects.forEach((project, index) => {
     const article = document.createElement("article");
     article.className = "project card";
 
-    // Cover image
-    if (project.image) {
-      const img = document.createElement("img");
-      img.src = project.image;
-      img.alt = project.title;
-      article.appendChild(img);
-    }
-
-    // Content wrapper (title + description + tags + buttons)
+    // Create content
     const contentDiv = document.createElement("div");
     contentDiv.className = "project-content";
 
@@ -52,7 +61,6 @@ function renderProjects() {
     p.textContent = project.description;
     contentDiv.appendChild(p);
 
-    // Actions wrapper (tags + buttons)
     const actionsWrapper = document.createElement("div");
     actionsWrapper.className = "project-actions";
 
@@ -83,8 +91,6 @@ function renderProjects() {
       codeBtn.href = project.links.github;
       codeBtn.target = "_blank";
       codeBtn.rel = "noopener noreferrer";
-      codeBtn.style.padding = "8px 12px";
-      codeBtn.style.fontWeight = "600";
 
       const icon = document.createElement("i");
       icon.className = "fa-brands fa-github";
@@ -97,21 +103,45 @@ function renderProjects() {
       buttonsDiv.appendChild(codeBtn);
     }
 
+    if (project.links?.dashboard) {
+      const dashBtn = document.createElement("a");
+      dashBtn.className = "btn";
+      dashBtn.href = project.links.dashboard;
+      dashBtn.target = "_blank";
+      dashBtn.rel = "noopener noreferrer";
+      dashBtn.textContent = "Dashboard";
+      buttonsDiv.appendChild(dashBtn);
+    }
+
     if (project.links?.shiny) {
       const liveBtn = document.createElement("a");
       liveBtn.className = "btn";
       liveBtn.href = project.links.shiny;
       liveBtn.target = "_blank";
       liveBtn.rel = "noopener noreferrer";
-      liveBtn.style.padding = "8px 12px";
-      liveBtn.style.fontWeight = "600";
       liveBtn.textContent = "Shiny app";
       buttonsDiv.appendChild(liveBtn);
     }
 
     actionsWrapper.appendChild(buttonsDiv);
     contentDiv.appendChild(actionsWrapper);
-    article.appendChild(contentDiv);
+
+    // Image
+    let img = null;
+    if (project.image) {
+      img = document.createElement("img");
+      img.src = project.image;
+      img.alt = project.title;
+    }
+
+    // Alternating layout
+    if (index % 2 === 0) {
+      if (img) article.appendChild(img);
+      article.appendChild(contentDiv);
+    } else {
+      article.appendChild(contentDiv);
+      if (img) article.appendChild(img);
+    }
 
     container.appendChild(article);
   });
@@ -140,30 +170,29 @@ function updateNavigation() {
 
   navContainer.style.display = "flex";
 
-  // Previous button
   const prevBtn = document.createElement("button");
   prevBtn.className = "project-nav-btn";
   prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
   prevBtn.disabled = currentPage === 0;
-  prevBtn.addEventListener("click", () => {
+  prevBtn.onclick = () => {
     if (currentPage > 0) {
       currentPage--;
       renderProjects();
     }
-  });
-  navContainer.appendChild(prevBtn);
+  };
 
-  // Next button
   const nextBtn = document.createElement("button");
   nextBtn.className = "project-nav-btn";
   nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
   nextBtn.disabled = currentPage >= totalPages - 1;
-  nextBtn.addEventListener("click", () => {
+  nextBtn.onclick = () => {
     if (currentPage < totalPages - 1) {
       currentPage++;
       renderProjects();
     }
-  });
+  };
+
+  navContainer.appendChild(prevBtn);
   navContainer.appendChild(nextBtn);
 }
 

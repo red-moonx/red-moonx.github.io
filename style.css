@@ -737,47 +737,63 @@ section{padding:90px 0}
 }
 
 /* Projects */
+/* ===========================
+   Projects
+   =========================== */
+
 .projects{
   display:flex;
   flex-direction:column;
   gap:20px;
 }
+
+/* MAIN PROJECT CARD LAYOUT */
 .project{
   display:flex;
   flex-direction:row;
   gap:24px;
-  align-items:flex-start;
+  align-items:stretch; /* important for equal height */
 }
+
+/* PROJECT IMAGE */
 .project img{
   border-radius:14px;
   border:1px solid color-mix(in oklab, var(--text) 10%, transparent);
-  width: 280px;
-  height: 100%;
+  width:300px;
+  height:auto;
   object-fit:cover;
   flex-shrink:0;
-  align-self:stretch;
 }
+
+/* PROJECT CONTENT */
 .project-content{
   flex:1;
   display:flex;
   flex-direction:column;
+  justify-content:space-between;
   gap:12px;
 }
+
+/* ACTIONS */
 .project-actions{
   display:flex;
   flex-direction:column;
   gap:10px;
   align-items:flex-start;
 }
+
 .project-actions .tags{
   justify-content:flex-start;
 }
+
+/* NAVIGATION */
 .project-nav{
   display:flex;
   justify-content:center;
   gap:16px;
   margin-top:24px;
 }
+
 .project-nav-btn{
   width:44px;
   height:44px;
@@ -792,19 +808,24 @@ section{padding:90px 0}
   transition:.25s;
   font-size:18px;
 }
+
 .project-nav-btn:hover:not(:disabled){
   border-color:var(--brand);
   transform:translateY(-2px);
 }
+
 .project-nav-btn:disabled{
   opacity:0.3;
   cursor:not-allowed;
 }
+
+/* TAGS */
 .tags{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
 }
+
 .tag{
   font-size:15px;
   padding:7px 12px;
@@ -813,57 +834,19 @@ section{padding:90px 0}
   border:1px solid color-mix(in oklab, var(--text) 12%, transparent);
 }
 
-/* Footer */
-footer{
-  padding:40px 0;
-  color:var(--muted);
-  text-align:center;
-  border-top:1px solid color-mix(in oklab, var(--text) 12%, transparent);
-}
+/* ===========================
+   Responsive (IMPORTANT)
+   =========================== */
 
-/* Layout fixes for header container */
-.container.nav-container{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:48px;
-  width:100%;
-}
-.logo{
-  flex:0 0 auto;
-  display:flex;
-  align-items:center;
-}
-.nav-center{
-  flex:0 0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:22px;
-}
-.nav-toggle-wrap{
-  flex:0 0 auto;
-  display:flex;
-  align-items:center;
-}
-
-/* Responsive */
-@media (max-width:1100px){
-  /* skills-card-grid already handled above */
-}
-@media (max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    gap:28px;
-    padding:44px 0;
+@media (max-width: 768px){
+  .project{
+    flex-direction:column !important;
   }
-  .about{grid-template-columns:1fr}
-  .nav-center{display:none;} /* later: mobile menu here */
-}
-@media (max-width:480px){
-  .brand-logo{width:44px;height:44px}
-}
 
+  .project img{
+    width:100%;
+  }
+}
 /* ===========================
    Publications
    =========================== */
