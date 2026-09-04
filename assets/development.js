@@ -2,29 +2,23 @@
 
 const courses = {
   ongoing: [
-    //     { 
-    //       title: "Data Engineering Zoomcamp by DataTalks.Club", 
-    //       institution: "", 
-    //       duration: "8 weeks", 
-    //       year: "Cohort 2026 | Started Jan 12, 2026",
-    //      description: "Containerization & infrastructure as code (Docker, Docker Compose, Terraform, GCP) | Workflow orchestration (Kestra) | Data ingestion & normalization | Data warehousing (BigQuery) | Analytics engineering & data modeling (dbt) | Batch & streaming",
-    //    },
-    {
-      title: "Machine Learning Zoomcamp by DataTalks.Club",
-      institution: "",
-      duration: "16 weeks",
-      year: "Self-paced | 2025-2026",
-      description: "Supervised learning (regression, classification, decision trees, ensemble methods) | Neural networks & deep learning (CNNs, transfer learning) | Model deployment (FastAPI, Docker) | Serverless deployment (AWS Lambda) | Container orchestration (Kubernetes, TensorFlow Serving) | Tools: Scikit-Learn, XGBoost, TensorFlow, PyTorch"
-    },
-    {
-      title: "IBM Data Science Professional Certificate",
-      institution: "",
-      duration: "12 course series",
-      year: "Self-paced | 2025-2026",
-      description: "Data science methodology | Python for data science & AI | Databases & SQL | Data analysis & visualization with Python | Machine learning with Python | Applied data science capstone | Generative AI | Tools: Python, Jupyter, SQL, Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn"
-    }
+    // {
+    //   title: "Machine Learning Zoomcamp by DataTalks.Club",
+    //   institution: "",
+    //   duration: "16 weeks",
+    //   year: "Self-paced | 2025-2026",
+    //   description: "Supervised learning (regression, classification, decision trees, ensemble methods) | Neural networks & deep learning (CNNs, transfer learning) | Model deployment (FastAPI, Docker) | Serverless deployment (AWS Lambda) | Container orchestration (Kubernetes, TensorFlow Serving) | Tools: Scikit-Learn, XGBoost, TensorFlow, PyTorch"
+    // }
   ],
   finished: [
+    {
+      year: "2026",
+      title: "LLM Zoomcamp by DataTalks.Club",
+      location: "online",
+      date: "June–September 2026",
+      note: "[Certificate upon project evaluation]",
+      description: "Text, vector & hybrid search | Embeddings & vector databases | RAG architectures | Workflow orchestration | LLM evaluation (Hit Rate, MRR & RAGAS) | LLM-as-a-judge & synthetic QA generation | Monitoring, costs & latency tracking | Docker containerization & Streamlit UI"
+    },
     {
       year: "2026",
       title: "Data Engineering Zoomcamp by DataTalks.Club",
@@ -80,47 +74,49 @@ const outreach = {
     listEl.className = "dev-content";
 
     // Ongoing courses
-    const ongoingSection = document.createElement("div");
-    ongoingSection.className = "dev-section";
+    if (courses.ongoing && courses.ongoing.length > 0) {
+      const ongoingSection = document.createElement("div");
+      ongoingSection.className = "dev-section";
 
-    const ongoingTitle = document.createElement("h3");
-    ongoingTitle.className = "dev-subsection-title";
-    ongoingTitle.textContent = "Ongoing:";
-    ongoingSection.appendChild(ongoingTitle);
+      const ongoingTitle = document.createElement("h3");
+      ongoingTitle.className = "dev-subsection-title";
+      ongoingTitle.textContent = "Ongoing:";
+      ongoingSection.appendChild(ongoingTitle);
 
-    const introText = document.createElement("p");
-    introText.className = "text-body";
-    introText.style.marginTop = "-10px";
-    introText.style.marginBottom = "20px";
-    introText.textContent = "Passionate about continuous learning and expanding my skill set. Currently enrolled in the following courses to deepen my expertise in production ML, AI tools, and data engineering (expected completion: Q1 2026).";
-    ongoingSection.appendChild(introText);
+      const introText = document.createElement("p");
+      introText.className = "text-body";
+      introText.style.marginTop = "-10px";
+      introText.style.marginBottom = "20px";
+      introText.textContent = "Passionate about continuous learning and expanding my skill set.";
+      ongoingSection.appendChild(introText);
 
-    const ongoingList = document.createElement("ul");
-    ongoingList.className = "dev-list";
+      const ongoingList = document.createElement("ul");
+      ongoingList.className = "dev-list";
 
-    courses.ongoing.forEach(course => {
-      const li = document.createElement("li");
-      li.className = "dev-item";
+      courses.ongoing.forEach(course => {
+        const li = document.createElement("li");
+        li.className = "dev-item";
 
-      let text = `<strong>${course.title}</strong>`;
-      if (course.institution) text += ` ${course.institution}`;
-      if (course.duration) text += ` | ${course.duration}`;
-      if (course.year) text += ` | ${course.year}`;
+        let text = `<strong>${course.title}</strong>`;
+        if (course.institution) text += ` ${course.institution}`;
+        if (course.duration) text += ` | ${course.duration}`;
+        if (course.year) text += ` | ${course.year}`;
 
-      li.innerHTML = text;
-      ongoingList.appendChild(li);
+        li.innerHTML = text;
+        ongoingList.appendChild(li);
 
-      // Add description if available
-      if (course.description) {
-        const descLi = document.createElement("li");
-        descLi.className = "dev-item dev-item-desc";
-        descLi.innerHTML = course.description;
-        ongoingList.appendChild(descLi);
-      }
-    });
+        // Add description if available
+        if (course.description) {
+          const descLi = document.createElement("li");
+          descLi.className = "dev-item dev-item-desc";
+          descLi.innerHTML = course.description;
+          ongoingList.appendChild(descLi);
+        }
+      });
 
-    ongoingSection.appendChild(ongoingList);
-    listEl.appendChild(ongoingSection);
+      ongoingSection.appendChild(ongoingList);
+      listEl.appendChild(ongoingSection);
+    }
 
     // Finished courses
     const finishedSection = document.createElement("div");
@@ -142,6 +138,10 @@ const outreach = {
       if (course.location) text += ` (${course.location}`;
       if (course.date) text += `; ${course.date})`;
       else if (course.location) text += `)`;
+
+      if (course.note) {
+        text += ` <span style="font-size: 0.9em; color: var(--muted);">${course.note}</span>`;
+      }
 
       if (course.certificate) {
         text += ` <a href="${course.certificate}" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.9em; text-decoration: underline; color: inherit;">[Certificate]</a>`;

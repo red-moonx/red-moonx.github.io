@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <!-- External stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 
 <body>
@@ -67,10 +67,10 @@
     <div>
       <h1 class="title hero-line">Hello, I'm</h1>
       <h2 class="title hero-line"><span class="accent">Luna Zea Redondo</span></h2>
-      <div class="subtitle">a Computational Systems Biologist</div>
+      <div class="subtitle">Computational Biologist</div>
 
       <p class="lead" style="font-size:calc(1.1rem + 1pt);">
-        driven by curiosity and the thrill of transforming complex data into discoveries that make a real-world impact.
+        working at the frontier of AI and Life Sciences to turn complex data into real-world discovery.
       </p>
 
       <p class="subtitle" style="margin-top:8px;font-weight:700;">Welcome to my space!</p>
@@ -203,32 +203,61 @@
     </div>
   </section>
 
-  <!-- Skills (cards grid + bioinformatics card populated by skills.js) -->
+  <!-- Skills (populated by skills.js) -->
   <section id="skills">
     <div class="container">
       <h2 class="section-title">My Skills</h2>
 
-      <p class="skills-intro text-body">
-        These are the skills I have gathered along my way (more coming!)…
-      </p>
-
       <!-- Populated by skills.js -->
       <div id="skillsGrid" class="skills-card-grid" aria-live="polite"></div>
-
-      <p class="skills-intro text-body skills-bio-intro">
-        And my all-time bioinformatics favorites:
-      </p>
-
-      <!-- Bioinformatics card populated by skills.js -->
-      <div id="bioSkills" class="card bio-card" aria-live="polite"></div>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects">
     <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <p class="text-body" style="margin-top:-10px; margin-bottom:20px;">
+      <div class="projects-header">
+        <h2 class="section-title" style="margin-bottom:0;">Projects</h2>
+
+        <!-- Multi-select Filter Dropdown Bar -->
+        <div class="projects-filter-dropdown" id="projectsFilterDropdown">
+          <button type="button" class="filter-dropdown-btn" id="filterDropdownBtn" aria-expanded="false" aria-controls="filterMenu">
+            <i class="fa-solid fa-filter"></i>
+            <span id="filterBtnLabel">Filter by Topic</span>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+          </button>
+          <div class="filter-menu" id="filterMenu" hidden>
+            <div class="filter-menu-header">
+              <span>Filter by Topic</span>
+              <button type="button" class="clear-filters-btn" id="clearFiltersBtn">Clear all</button>
+            </div>
+            <div class="filter-options">
+              <label class="filter-checkbox-label">
+                <input type="checkbox" value="Bio & Genomics" class="project-filter-cb">
+                <span>Bio & Genomics</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" value="Clinical Data" class="project-filter-cb">
+                <span>Clinical Data</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" value="Data Engineering" class="project-filter-cb">
+                <span>Data Engineering</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" value="Machine Learning" class="project-filter-cb">
+                <span>Machine Learning</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" value="GenAI & LLMs" class="project-filter-cb">
+                <span>GenAI & LLMs</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-body" style="margin-top:10px; margin-bottom:24px;">
         Work in progress! New projects are brewing 🧪✨ 
       </p>
 
@@ -350,18 +379,18 @@
   </script>
 
   <!-- Resume logic -->
-  <script src="assets/resume.js"></script>
+  <script src="assets/resume.js?v=2"></script>
 
   <!-- Publications logic -->
   <script src="assets/publications.js"></script>
 
   <!-- Skills logic -->
-  <script src="assets/skills.js"></script>
+  <script src="assets/skills.js?v=9"></script>
 
   <!-- Projects logic -->
-  <script src="assets/projects.js"></script>
+  <script src="assets/projects.js?v=9"></script>
 
   <!-- Development logic -->
-  <script src="assets/development.js"></script>
+  <script src="assets/development.js?v=3"></script>
 </body>
 </html>

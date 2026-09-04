@@ -41,6 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     education: [
       {
+        year: '2026 (in progress)',
+        title: 'Data Science & AI Intensive Program',
+        place: 'Constructor Academy',
+        subtitle: 'Online',
+        description:
+          'Building the AI toolkit to match my biology foundation: statistical modeling, ML and deep learning, NLP, MLOps, data infrastructure and cloud.'
+      },
+      {
         year: '2025',
         title: 'PhD, Systems Biology',
         place: 'Humboldt University',

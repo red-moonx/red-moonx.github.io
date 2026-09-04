@@ -1,0 +1,128 @@
+Gad2, Slc17a6
+
+
+chapter1_VTA_DNs_barPlot
+
+
+
+find . -type f -name "*.R" -exec grep -l "chapter1_VTA_DNs_barPlot" {} +
+
+
+sv2c, hacn1, hcn2, slc17a6
+
+
+
+
+
+
+selected_genes_to_plot <- c("Htr2a", "Ace", "Dtx3", #h1 DONE
+                            "Akt1","Bdnf", "Ptprt", # h4 DONE
+                            "Slc22a3", "Vip", "Drd1", "Per2" #h8 DONE
+                            "Penk", "Cartpt", "Ucn", "Npy" #h24 DONE
+                            "Hcrt", "Gdnf", "Il7", "Col23a1",  #d14 DONE
+                            "Tacr3", "Xrcc5", "Fancg", "Abca1",  #sal vs h1 DONE
+                            "Map2k1", "Nrp1", "Csnk2b", "Ctdp1", "Grk6", #sal vs h4 DONE
+                            "Foxa1", "Npy1r", "Chrna3", #sal vs h8  DONE
+                            "Egf", "Src", "Drd2", "Ptgds" #sal vs h24
+                            "Coq3", "Grik1" "Polr2a")  #sal vs d14
+
+
+
+Npy1r Gdnf
+Doremifasol-8
+
+
+
+
+
+
+saline + cocaine seprated (neuropeptides )
+
+
+Sunday: atac data to share with vedran
+Monday: repeat with pval < 0.01: todo
+Tuesday and wednesday: figures
+
+
+
+
+Monday: ATAC
+Tuesday: gene expression, pval 0.01, all (PRC2 and DN identity)
+Wednesday: GO terms
+Thursday: Figures and text
+Friday: Figures and text
+
+---
+
+Next week
+1. ATAC work
+2. Work with Ana
+
+
+
+
+
+
+
+
+
+
+
+recovered: 2,8,13,14,18,29,32,33,40
+memory: 1,5,6,9,11,19,20,21,26,27,28,31,37
+delayed: 3,4,7,10,12,15,16,17,22,23,24,25,30,34,35,36,38,39
+
+
+down: 1,4,6,9,10,12,13,16,18,21,23,24,26,27,30,32,35,37,40
+
+
+kgex_down <- c(1,4,6,9,10,12,13,16,18,21,23,24,25,26,27,30,32,35,37,40)
+kgex_up <- c(2,3,5,7,8,11,14,15,17,19,20,22,28,29,31,33,34,36,38,39)
+
+
+
+
+
+
+
+ESTE ES EL QUE VALE:
+
+recovered: 2,5,8,9,18,20,28,29,34,39 
+memory: 1,7,11,12,14,16,19,26,27,30,32,33,35,40
+delayed: 3,4,6,10,13,15,17,21,22,23,24,25,31,36,37,38
+
+
+up: 2,3,7,8,10,11,12,13,15,18,20,21,24,25,29,30,32,33,40
+down: 1,4,5,6,9,14,16,17,19,22,23,26,27,28,31,34,35,36,37,38,39
+
+
+
+
+
+200529_transientUP_allDEGs
+200529_transientDOWN_allDEGs
+200529_recoveredUP_allDEGs
+200529_recoveredDOWN_allDEGs
+
+200529_memoryUP_allDEGs
+200529_memoryDOWN_allDEGs
+200529_delayedUP_allDEGs
+200529_delayedDOWN_allDEGs
+
+
+
+
+260526_transientUP_PRC2targets
+260526_recoveredUP_PRC2targets
+260526_memoryUP_PRC2targets
+260526_delayedUP_PRC2targets
+
+
+
+
+
+
+
+cp -r /fast/AG_Pombo/.snapshots/@GMT-2026.05.20-01.02.36/luna/2026_rebuttal .
+
+
