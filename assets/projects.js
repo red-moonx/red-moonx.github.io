@@ -45,13 +45,14 @@ const projects = [
   {
     title: "Athletica",
     description:
-      "An evidence-based Agentic RAG pipeline designed to answer complex queries on female athlete physiology and sports nutrition using curated scientific literature. Features domain-specific PDF chunking, semantic vector search, PMID citation auditing, and an interactive Streamlit UI. (Work in progress)",
+      "An autonomous Agentic RAG assistant for female sports physiology. Features custom LLM tool-calling for clinical assessments (e.g., RED-S risk), rigorous LLM-as-a-judge citation auditing to eliminate hallucinations, and a dual-deployment architecture (Elasticsearch/Docker for local reproduction & in-memory vector search for the live Streamlit UI).",
     image: "assets/project_cover/project4_cover.png",
     categories: ["GenAI & LLMs"],
-    tags: ["RAG", "Vector Search", "LLM-as-a-judge", "RAGAS", "Streamlit", "Docker"],
+    tags: ["Agentic RAG", "Vector Search", "Tool Calling", "Streamlit", "Docker", "Elasticsearch"],
     date: "2026-05",
     links: {
-      github: "https://github.com/red-moonx/Athletica"
+      github: "https://github.com/red-moonx/Athletica",
+      liveApp: "https://athletica-agentic-rag.streamlit.app"
     }
   }
 ];
@@ -153,6 +154,16 @@ function renderProjects() {
       codeBtn.appendChild(span);
 
       buttonsDiv.appendChild(codeBtn);
+    }
+
+    if (project.links?.liveApp) {
+      const liveBtn = document.createElement("a");
+      liveBtn.className = "btn";
+      liveBtn.href = project.links.liveApp;
+      liveBtn.target = "_blank";
+      liveBtn.rel = "noopener noreferrer";
+      liveBtn.textContent = "Live App";
+      buttonsDiv.appendChild(liveBtn);
     }
 
     if (project.links?.dashboard) {

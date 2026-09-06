@@ -26,7 +26,6 @@ const skillsGroups = [
   },
   {
     title: "🧠 Deep Learning & GenAI",
-    inProgress: true,
     items: [
       { label: "Neural Networks" },
       { label: "CNNs" },
@@ -53,7 +52,7 @@ const skillsGroups = [
       { label: "Pandas", iconClass: "devicon-pandas-plain colored" },
       { label: "NumPy", iconClass: "devicon-numpy-plain colored" },
       { label: "Data Visualization" },
-      { label: "Interactive Dashboards" }
+      { label: "Streamlit" }
     ]
   },
   {
@@ -67,7 +66,8 @@ const skillsGroups = [
       { label: "Kafka", svgPath: "assets/icons/kafka.svg" },
       { label: "Terraform", svgPath: "assets/icons/terraform.svg" },
       { label: "ETL/ELT" },
-      { label: "APIs & Web Scraping" }
+      { label: "APIs & Web Scraping" },
+      { label: "Elasticsearch" }
     ]
   },
   {
