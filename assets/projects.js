@@ -21,11 +21,11 @@ const projects = [
       "My first Data Engineering project! A global-scale data engineering pipeline for marine biodiversity monitoring (Cetacea). Automates the ingestion, cleaning, and transformation of 11M+ GBIF records into a scalable Data Warehouse optimized for professional geospatial analysis (2021–2026).",
     image: "assets/project_cover/project2_cover.png",
     categories: ["Data Engineering"],
-    tags: ["Terraform", "SQL", "Airflow", "GCS", "BigQuery", "dbt", "dashboard"],
+    tags: ["Terraform", "SQL", "Airflow", "GCS", "BigQuery", "dbt", "Streamlit"],
     date: "2026-03",
     links: {
       github: "https://github.com/red-moonx/biomonitor-capstone",
-      dashboard: "https://datastudio.google.com/reporting/66d156e8-19b6-4879-9dae-a09d9af42ea7"
+      liveApp: "https://whale-biomonitor.streamlit.app/"
     }
   },
 
