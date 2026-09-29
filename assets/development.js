@@ -16,7 +16,7 @@ const courses = {
       title: "LLM Zoomcamp by DataTalks.Club",
       location: "online",
       date: "June–September 2026",
-      note: "[Certificate upon project evaluation]",
+      certificate: "assets/certificates/llm_zoomcamp_certificate.pdf",
       description: "Text, vector & hybrid search | Embeddings & vector databases | RAG architectures | Workflow orchestration | LLM evaluation (Hit Rate, MRR & RAGAS) | LLM-as-a-judge & synthetic QA generation | Monitoring, costs & latency tracking | Docker containerization & Streamlit UI"
     },
     {

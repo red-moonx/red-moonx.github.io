@@ -25,7 +25,7 @@ const projects = [
     date: "2026-03",
     links: {
       github: "https://github.com/red-moonx/biomonitor-capstone",
-      liveApp: "https://whale-biomonitor.streamlit.app/"
+      liveApp: "https://whale-biomonitor-app-temp.streamlit.app/"
     }
   },
 
